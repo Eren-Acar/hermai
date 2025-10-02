@@ -1,27 +1,34 @@
-# setup.py (GÜNCELLENMİŞ HALİ)
 
+import os
 from setuptools import setup, find_packages
 
-# requirements.txt dosyasını oku
-with open('requirements.txt', 'r', encoding='utf-8') as f:
-    required = f.read().splitlines()
-
-# README.md dosyasını oku
-with open('README.md', 'r', encoding='utf-8') as f:
-    long_description = f.read()
+# README.md dosyasının yolunu güvenli bir şekilde al
+here = os.path.abspath(os.path.dirname(__file__))
+try:
+    with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+        long_description = f.read()
+except FileNotFoundError:
+    long_description = 'A hermeneutic approach to explainable AI (XAI).'
 
 setup(
     name='hermai',
-    version='0.1.2',  # Versiyonu güncelledim
-    author='bilgisayarkavramlari', # Adınızı veya kullanıcı adınızı yazın
-    author_email='[E-posta Adresiniz]',
+    version='0.1.4',  
+    author='sadi evren seker',
+    author_email='hermai@sadievrenseker.com',
     description='A hermeneutic approach to explainable AI (XAI) with contextual and narrative explanations.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/bilgisayarkavramlari/hermai', 
     packages=find_packages(),
-    install_requires=required,
-    include_package_data=True,  # <-- EKLENDİ: MANIFEST.in dosyasını kullan
+    
+    install_requires=[
+        'pandas',
+        'numpy',
+        'scikit-learn',
+        'matplotlib',
+        'seaborn'
+    ],
+    include_package_data=True,
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
