@@ -12,7 +12,7 @@ except FileNotFoundError:
 
 setup(
     name='hermai',
-    version='0.1.7',  
+    version='0.1.8',  
     author='sadi evren seker',
     author_email='hermai@sadievrenseker.com',
     description='A hermeneutic approach to explainable AI (XAI) with contextual and narrative explanations.',
