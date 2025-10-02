@@ -7,9 +7,6 @@ Hermai is a Python library for explainable AI (XAI) that focuses on providing co
   <img src="hermai_wide.png" alt="Hermai Logo" width="300"/>
 </p>
 
-<p align="center">
-  <img src="hermai_wide.png" alt="Hermai Logo" width="300"/>
-</p>
 
 ## Key Features
 
