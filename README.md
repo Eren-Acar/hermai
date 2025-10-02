@@ -4,6 +4,10 @@
 
 Hermai is a Python library for explainable AI (XAI) that focuses on providing contextual, narrative, and actionable explanations for machine learning models. Inspired by hermeneutics, it aims to create a dialogue between the user and the model's decision-making process.
 
+<p align="center">
+  <img src="hermai_wide.png" alt="Hermai Logo" width="300"/>
+</p>
+
 ## Key Features
 
 - **Contextual Perturbations:** Generates realistic "what-if" scenarios that respect the correlations in your data.
@@ -16,7 +20,7 @@ Hermai is a Python library for explainable AI (XAI) that focuses on providing co
 You can install Hermai directly from GitHub:
 
 ```bash
-pip install git+[https://github.com/](https://github.com/)bilgisayarkavramlari/hermai.git
+pip install hermai
 ```
 
 ## Quick Usage
