@@ -12,14 +12,20 @@ except FileNotFoundError:
 
 setup(
     name='hermai',
-    version='0.1.4',  
+    version='0.1.5',  
     author='sadi evren seker',
     author_email='hermai@sadievrenseker.com',
     description='A hermeneutic approach to explainable AI (XAI) with contextual and narrative explanations.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/bilgisayarkavramlari/hermai', 
-    packages=find_packages(),
+    packages=[
+        'hermai',
+        'hermai.core',
+        'hermai.explainers',
+        'hermai.perturbations',
+        'hermai.visualizations'
+    ],
     
     install_requires=[
         'pandas',
