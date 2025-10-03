@@ -11,6 +11,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from hermai.perturbations.tabular import TabularPerturbationGenerator
 from hermai.explainers import LocalExplainer, GeneralExplainer # <-- Daha temiz import
+from hermai.visualizations.navigator import show_explanations_pager
 
 # --- 1. Data Loading and Preparation ---
 print("🚢 1. Loading and preparing the Titanic dataset...")
@@ -41,22 +42,15 @@ print(instance)
 local_explanation = local_explainer.explain(instance)
 print("\n--- Explanation Narrative ---")
 print(local_explanation.narrative())
-print("\n--- Feature Contribution Plot ---")
-local_explanation.plot()
 
-# --- 4. GENERAL MODEL EXPLANATION ---  <-- DEĞİŞTİ
+# --- 4. GENERAL MODEL EXPLANATION ---  
 print("\n\n" + "="*50)
-print("🌍 4. GENERATING GENERAL MODEL EXPLANATION") # <-- DEĞİŞTİ
+print("🌍 4. GENERATING GENERAL MODEL EXPLANATION") 
 print("="*50)
 # Setup the general explainer
-general_explainer = GeneralExplainer(black_box_model) # <-- DEĞİŞTİ
+general_explainer = GeneralExplainer(black_box_model)
 
 # Explain the model's overall behavior using the training data
-general_explanation = general_explainer.explain(X_train) # <-- DEĞİŞTİ
+general_explanation = general_explainer.explain(X_train) 
 
-# Show general importance and the decision tree approximation
-print("\n--- General Feature Importance Plot ---") # <-- DEĞİŞTİ
-general_explanation.plot_feature_importance()
-print("\n--- Approximated Decision Rules (Surrogate Tree) ---")
-print("This tree shows the main decision paths the complex RandomForest model appears to follow.")
-general_explanation.plot_surrogate_tree()
+show_explanations_pager(local_explanation, general_explanation)
